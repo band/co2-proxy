@@ -3,7 +3,7 @@ const cors = require('cors');
 const axios = require('axios');
 const path = require('path');
 //const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
+//const helmet = require('helmet');
 
 const app = express();
 
@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Security middleware
-app.use(helmet());
+//app.use(helmet());
 
 // Rate limiting
 /*
