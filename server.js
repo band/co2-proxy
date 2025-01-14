@@ -56,7 +56,7 @@ app.get('/api/co2data', async (req, res) => {
         }
 
         // Fetch new data
-        const response = await axios.get('https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_trend_gl.txt', {
+        const response = await axios.get('https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.txt', {
             timeout: 5000,
             headers: {
                 'User-Agent': 'CO2 Data Proxy Service'
