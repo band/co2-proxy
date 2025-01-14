@@ -27,7 +27,7 @@ const corsOptions = {
     origin: process.env.NODE_ENV === 'production' 
         ? [
             'https://praxis101.net', // Replace with your actual frontend domain
-            'https://co2-proxy-1.onrender.com'  // Replace with your Render domain
+            'https://co2-proxy.onrender.com'  // Replace with your Render domain
           ]
         : 'http://localhost:3000',
     optionsSuccessStatus: 200
