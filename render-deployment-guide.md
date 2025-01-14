@@ -72,7 +72,6 @@ app.get('/health', (req, res) => {
 ```
 
 ## 2. Version Control Setup
-
 1. Initialize Git repository:
 ```bash
 git init
@@ -89,6 +88,7 @@ git commit -m "Initial commit"
    - Copy the repository URL
 
 3. Connect and push to GitHub:
+N.B.: treat these instructions with some scepticism
 ```bash
 git remote add origin YOUR_GITHUB_REPO_URL
 git branch -M main
