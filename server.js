@@ -32,7 +32,8 @@ const corsOptions = {
         : 'http://localhost:3000',
     optionsSuccessStatus: 200
 };
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+app.use(cors());
 
 // Serve static files from 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
