@@ -46,13 +46,15 @@ app.get('/health', (req, res) => {
 // Proxy endpoint with caching
 let cachedData = null;
 let lastFetch = 0;
-const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
+//const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
+const CACHE_DURATION = 60 * 2 * 1000 // 2 minutes
 
 app.get('/api/co2data', async (req, res) => {
     try {
         // Check cache
         const now = Date.now();
         if (cachedData && (now - lastFetch < CACHE_DURATION)) {
+//						console.log('returning cachedData')
             return res.json(cachedData);
         }
 
@@ -68,7 +70,7 @@ app.get('/api/co2data', async (req, res) => {
         cachedData = response.data;
         lastFetch = now;
 
-        res.send(response.data);
+        res.send(JSON.stringify(response.data));
     } catch (error) {
         console.error('Error fetching data:', error);
         if (cachedData) {
