@@ -54,7 +54,7 @@ app.get('/api/co2data', async (req, res) => {
         // Check cache
         const now = Date.now();
         if (cachedData && (now - lastFetch < CACHE_DURATION)) {
-//						console.log('returning cachedData')
+						console.log('returning cachedData')
             return res.json(cachedData);
         }
 
@@ -70,7 +70,8 @@ app.get('/api/co2data', async (req, res) => {
         cachedData = response.data;
         lastFetch = now;
 
-        res.send(JSON.stringify(response.data));
+//        res.send(response.data);
+				res.json(response.data);
     } catch (error) {
         console.error('Error fetching data:', error);
         if (cachedData) {
@@ -87,7 +88,7 @@ app.use((req, res) => {
     res.status(404).send('Not Found');
 });
 
-// Error handling middleware
+// Error Handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
