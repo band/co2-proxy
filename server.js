@@ -54,7 +54,6 @@ app.get('/api/co2data', async (req, res) => {
         // Check cache
         const now = Date.now();
         if (cachedData && (now - lastFetch < CACHE_DURATION)) {
-						console.log('returning cachedData')
             return res.json(cachedData);
         }
 
@@ -70,7 +69,6 @@ app.get('/api/co2data', async (req, res) => {
         cachedData = response.data;
         lastFetch = now;
 
-//        res.send(response.data);
 				res.json(response.data);
     } catch (error) {
         console.error('Error fetching data:', error);
